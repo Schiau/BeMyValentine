@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: pink;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            max-width: 100%;
+            max-height: 100%;
+            overflow: hidden;
+        }
+        h1 {
+            color: red;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .yes {
+            background-color: red;
+            color: white;
+        }
+        .no {
+            background-color: white;
+            color: red;
+            position: absolute;
+        }
+        .gif-container img {
+            width: 300px;
+            height: auto;
+        }
+    </style>
+    <script>
+        function moveNoButton() {
+            const noButton = document.querySelector('.no');
+            noButton.style.top = Math.random() * window.innerHeight + 'px';
+            noButton.style.left = Math.random() * window.innerWidth + 'px';
+
+            const yesButton = document.querySelector('.yes');
+            let currentSize = parseInt(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = (currentSize + 5) + "px";
+            yesButton.style.padding = (currentSize + 10) + "px";
+        }
+        function sayYes() {
+            document.body.innerHTML = '<h1>Yay! Can&apos;t wait for our date! ❤️</h1>' +
+                                      '<div class="gif-container">' +
+                                      '<img src="./images/milk-and-mocha-yes.gif" alt="Milk and Mocha GIF">' +
+                                      '</div>';
+        }
+    </script>
+</head>
+<body>
+    <div class="gif-container">
+        <img src="./images/milk-and-mocha-start-page.gif" alt="Milk and Mocha GIF">
+    </div>
+    <h1>Will you be my Valentine? 💖</h1>
+    <div class="buttons">
+        <button class="yes" onclick="sayYes()">Yes</button>
+        <button class="no" onmouseover="moveNoButton()">No</button>
+    </div>
+</body>
+</html>
